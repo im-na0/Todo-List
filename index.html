@@ -5,14 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo-List</title>
     <script defer src="./js/main.js"></script>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Tomorrow:ital@0;1&display=swap" rel="stylesheet" />
   </head>
   <body>
     <div class="todo-container">
+      <div class="todo-title">
+        <div class="todo-subtitle"></div>
+        Todo-List...
+      </div>
       <div class="todo-content">
-        <div class="todo-title">Todo-List...</div>
+        <div class="todo-date">2023년 7월 24일</div>
+
         <div class="todo-input">
           <input type="text" id="input" placeholder="Add yout task" /><input type="button" value="+" id="addBtn" />
         </div>
+
         <ul class="todo-list"></ul>
       </div>
     </div>

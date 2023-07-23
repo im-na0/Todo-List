@@ -12,9 +12,13 @@ function getUniqueID() {
  */
 const inputEl = document.getElementById('input'); // 지역변수로 바꾸기!!!!!!!!!
 const addBtnEl = document.getElementById('addBtn'); // 지역변수로 바꾸기!!!!!!!
+
+// Add button Event
 addBtnEl.addEventListener('click', () => {
   onClick();
 });
+
+// EnterKey Event
 inputEl.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
     if (e.isComposing) return; // keydown 이슈방지
@@ -23,6 +27,11 @@ inputEl.addEventListener('keydown', (e) => {
 });
 
 function onClick() {
+  // 공백 입력 시 경고창
+  if (inputEl.value === '') {
+    alert('문자를 입력해주세요!');
+    return;
+  }
   const listEl = document.querySelector('.todo-list');
   const taskEl = document.createElement('li');
   // 할 일 추가 + 고유 번호 클래스명
