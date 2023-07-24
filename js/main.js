@@ -1,62 +1,68 @@
 /**
  * Unique Number Counter
  */
-let counter = 0;
+let counter = 0
 
 function getUniqueID() {
-  return `id-${counter++}`;
+  return `id-${counter++}`
 }
 
 /**
  * Create Input & add button
  */
-const inputEl = document.getElementById('input'); // 지역변수로 바꾸기!!!!!!!!!
-const addBtnEl = document.getElementById('addBtn'); // 지역변수로 바꾸기!!!!!!!
+const inputEl = document.getElementById('input') // 지역변수로 바꾸기!!!!!!!!!
+const addBtnEl = document.getElementById('addBtn') // 지역변수로 바꾸기!!!!!!!
 
 // Add button Event
 addBtnEl.addEventListener('click', () => {
-  onClick();
-});
+  onClick()
+})
 
 // EnterKey Event
 inputEl.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
-    if (e.isComposing) return; // keydown 이슈방지
-    onClick();
+    if (e.isComposing) return // keydown 이슈방지
+    onClick()
   }
-});
+})
 
 function onClick() {
   // 공백 입력 시 경고창
   if (inputEl.value === '') {
-    alert('문자를 입력해주세요!');
-    return;
+    alert('문자를 입력해주세요!')
+    return
   }
-  const listEl = document.querySelector('.todo-list');
-  const taskEl = document.createElement('li');
+  const listEl = document.querySelector('.todo-list')
+  const taskEl = document.createElement('li')
   // 할 일 추가 + 고유 번호 클래스명
-  const className = getUniqueID();
-  taskEl.classList.add(className);
-  taskEl.textContent = inputEl.value;
+  const className = getUniqueID()
+  taskEl.classList.add(className)
+  taskEl.textContent = inputEl.value
 
-  listEl.appendChild(taskEl);
+  listEl.appendChild(taskEl)
   // input 초기화
-  inputEl.value = null;
+  inputEl.value = null
 
   // checkbox생성 함수호출
-  AddCheckBox(taskEl);
+  AddCheckBox(taskEl)
 
   // remove button생성 함수호출
-  AddDltBtn(taskEl, listEl, className);
+  AddDltBtn(taskEl, listEl, className)
 }
 
 /**
- * Checkbox
+ * Checkbox + label
  */
 function AddCheckBox(taskEl) {
-  const checkBox = document.createElement('input');
-  checkBox.setAttribute('type', 'checkbox');
-  taskEl.prepend(checkBox);
+  const checkBox = document.createElement('input')
+  const label = checkBox.createElement('label')
+  // Id 추가 & 속성 추가
+  const idName = getUniqueID()
+  checkBox.setAttribute('id', idName)
+  checkBox.setAttribute('type', 'checkbox')
+  label.setAttribute('for', 'cbtest')
+  taskEl.prepend(checkBox)
+  checkBox.appendChild(label)
 }
 
 /**
@@ -64,16 +70,16 @@ function AddCheckBox(taskEl) {
  */
 function AddDltBtn(taskEl, listEl, ClassName) {
   // remove button 생성
-  const dltBtn = document.createElement('input');
+  const dltBtn = document.createElement('input')
 
-  dltBtn.setAttribute('type', 'button');
-  dltBtn.setAttribute('value', 'x');
+  dltBtn.setAttribute('type', 'button')
+  dltBtn.setAttribute('value', 'x')
 
-  taskEl.append(dltBtn);
+  taskEl.append(dltBtn)
 
   // Delete Elements Event
   dltBtn.addEventListener('click', () => {
-    const dltEl = listEl.querySelector(`.${ClassName}`);
-    dltEl.remove();
-  });
+    const dltEl = listEl.querySelector(`.${ClassName}`)
+    dltEl.remove()
+  })
 }
