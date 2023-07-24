@@ -116,27 +116,53 @@
 }
 
 .todo-list li {
+  position: relative;
   font-size: 0.9rem;
   list-style: none;
-  padding: 12px 8px 12px 30px;
+  padding: 12px 30px 12px 30px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
-.todo-list li input[type='checkbox'] {
-  display: none;
-}
-.todo-list li input[type='checkbox'] + label {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  border: 3px solid #707070;
-  position: relative;
-}
-.todo-list li input[id='id-3']:checked + label::after {
-  content: '✔';
-  font-size: 25px;
-  width: 30px;
-  height: 30px;
+.todo-list li::before {
+  content: '';
+  height: 23px;
+  width: 23px;
+  margin-right: 10px;
+  border-radius: 50%;
+  border: 1.5px solid #cbcbcb;
   text-align: center;
+}
+
+.todo-list li.checked {
+  color: #bdbdbd;
+  text-decoration: line-through;
+}
+
+.todo-list li.checked::before {
+  content: '';
+  color: #fff;
+  text-decoration: unset;
+  background: linear-gradient(180deg, rgba(255, 244, 228, 1) 0%, rgba(0, 71, 255, 1) 100%);
+}
+
+.todo-list li i {
+  content: '';
+  height: 23px;
+  width: 23px;
+  border-radius: 50%;
+  border: 1px solid #000;
   position: absolute;
-  left: 0;
-  top: 0;
+  right: 30px;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.todo-list li > i::before {
+  font-size: 0.8rem;
+}
+.todo-list li i:hover {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(208, 66, 245, 1) 100%);
 }
