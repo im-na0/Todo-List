@@ -1,6 +1,14 @@
+@font-face {
+  font-family: 'NEXON Lv2 Gothic';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue',
     sans-serif;
+
   box-sizing: border-box;
 }
 
@@ -77,7 +85,19 @@
     rgba(185, 242, 127, 1) 39%,
     rgba(150, 233, 67, 1) 100%
   );
-  padding: 13px 30px;
+  padding: 13px 25px;
+}
+
+.todo-date span {
+  font-size: 1rem;
+}
+
+.todo-date i {
+  padding: 0 5px;
+  color: #000;
+}
+.todo-date i::before {
+  font-size: 0.9rem;
 }
 
 /* TODO-INPUP */
@@ -88,6 +108,7 @@
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
   position: relative;
+  font-family: -apple-system, 'NEXON Lv2 Gothic';
 }
 
 .todo-input input {
@@ -115,11 +136,16 @@
   cursor: pointer;
 }
 
+.todo-list {
+  font-family: -apple-system, 'NEXON Lv2 Gothic';
+  padding: 15px 30px;
+}
+
 .todo-list li {
   position: relative;
   font-size: 0.9rem;
   list-style: none;
-  padding: 12px 30px 12px 30px;
+  padding: 12px 0;
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -134,16 +160,20 @@
   text-align: center;
 }
 
-.todo-list li.checked {
+.todo-list li.checked span {
   color: #bdbdbd;
   text-decoration: line-through;
 }
 
 .todo-list li.checked::before {
-  content: '';
+  content: '✔';
+  font-size: 0.8rem;
+  font-weight: 100;
   color: #fff;
-  text-decoration: unset;
   background: linear-gradient(180deg, rgba(255, 244, 228, 1) 0%, rgba(0, 71, 255, 1) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .todo-list li i {
@@ -153,16 +183,26 @@
   border-radius: 50%;
   border: 1px solid #000;
   position: absolute;
-  right: 30px;
+  right: 0;
   color: #000;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
 }
-.todo-list li > i::before {
+.todo-list li i::before {
   font-size: 0.8rem;
 }
-.todo-list li i:hover {
+.todo-list li .xi-close:hover {
   background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(208, 66, 245, 1) 100%);
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
