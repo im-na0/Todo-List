@@ -1,14 +1,12 @@
 @font-face {
-  font-family: 'NEXON Lv2 Gothic';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv2 Gothic.woff') format('woff');
-  font-weight: normal;
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
   font-style: normal;
 }
 
 * {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue',
-    sans-serif;
-
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   box-sizing: border-box;
 }
 
@@ -16,21 +14,18 @@
   width: 100%;
   min-height: 100vh;
   padding: 10px;
-  background: linear-gradient(
-    180deg,
-    rgba(68, 117, 241, 1) 0%,
-    rgba(255, 255, 255, 1) 46%,
-    rgba(225, 234, 255, 1) 67%,
-    rgba(144, 175, 255, 1) 91%,
-    rgba(57, 113, 255, 1) 100%
-  );
+  background: linear-gradient(180deg, rgba(68, 117, 241, 1) 0%, rgba(255, 255, 255, 1) 46%, rgba(225, 234, 255, 1) 67%, rgba(144, 175, 255, 1) 91%, rgba(57, 113, 255, 1) 100%);
 }
 
 /* TODO TITLE */
+.todo-tit-wrap {
+  display: flex;
+}
+
 .todo-title {
   position: relative;
   display: flex;
-  align-items: center;
+  justify-content: center;
   width: 480px;
   margin: 150px auto 0;
   font-family: 'Tomorrow', sans-serif;
@@ -39,7 +34,6 @@
   color: #fff;
   text-shadow: -1px 0 #000, 3px 1px #000, 1px 3px #000, 0 -1px #000;
   z-index: 9;
-  justify-content: center;
 }
 .todo-title .todo-subtitle {
   display: flex;
@@ -79,12 +73,7 @@
   overflow: auto;
 }
 .todo-date {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(185, 242, 127, 1) 39%,
-    rgba(150, 233, 67, 1) 100%
-  );
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(185, 242, 127, 1) 39%, rgba(150, 233, 67, 1) 100%);
   padding: 13px 25px;
 }
 
@@ -108,7 +97,7 @@
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
   position: relative;
-  font-family: -apple-system, 'NEXON Lv2 Gothic';
+  font-family: -apple-system, 'Pretendard-Regular';
 }
 
 .todo-input input {
@@ -137,7 +126,7 @@
 }
 
 .todo-list {
-  font-family: -apple-system, 'NEXON Lv2 Gothic';
+  font-family: -apple-system, 'Pretendard-Regular';
   padding: 15px 30px;
 }
 
@@ -192,6 +181,15 @@
 }
 .todo-list li i::before {
   font-size: 0.8rem;
+}
+
+.todo-list li i.xi-pen {
+  position: absolute;
+  right: 30px;
+}
+
+.todo-list li i.xi-pen:hover {
+  background: linear-gradient(0deg, rgba(253, 187, 45, 1) 0%, rgba(255, 255, 255, 1) 100%);
 }
 .todo-list li .xi-close:hover {
   background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(208, 66, 245, 1) 100%);
